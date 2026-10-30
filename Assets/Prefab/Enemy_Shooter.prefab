@@ -248,5 +248,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7891eabbee654564bb589f2f91e80d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyShooterBehavior
+  type: 2
+  target: {fileID: 0}
   speed: 1.5
+  life: 0
   range: 7
+  onDebuff: 0

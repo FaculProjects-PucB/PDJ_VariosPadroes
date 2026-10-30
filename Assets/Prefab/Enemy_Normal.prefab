@@ -67,7 +67,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6df979f40189bb249af6db8254bef12c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBehavior
+  type: 1
+  target: {fileID: 0}
   speed: 2
+  life: 0
+  range: 0
+  onDebuff: 0
 --- !u!1 &5843298494865183395
 GameObject:
   m_ObjectHideFlags: 0

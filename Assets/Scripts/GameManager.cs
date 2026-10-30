@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 [DefaultExecutionOrder(-1)]
 public class GameManager : MonoBehaviour
@@ -11,6 +13,11 @@ public class GameManager : MonoBehaviour
     private int enemiesKilled;
     [SerializeField] private int maxLife;
     private int life;
+    [SerializeField] private float powerUpDuration;
+
+    // Events
+    public UnityEvent OnPowerUpCollected;
+    public UnityEvent OnPowerUpEnded;
 
     // References
     private GameObject player;
@@ -26,7 +33,22 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         life = maxLife;
+
+        OnPowerUpCollected.AddListener(PowerUpTimer);
     }
+
+    private void PowerUpTimer()
+    {
+        StartCoroutine(I_PowerUpTimer());
+    }
+
+    private IEnumerator I_PowerUpTimer()
+    {
+        yield return new WaitForSeconds(powerUpDuration);
+        OnPowerUpEnded.Invoke();
+    }
+
+    // Public Methods
 
     public void SetPlayer(GameObject player)
     {

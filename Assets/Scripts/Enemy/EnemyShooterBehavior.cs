@@ -2,13 +2,9 @@ using UnityEngine;
 
 public class EnemyShooterBehavior : EnemyBehavior
 {
-    private EnemyState state;
     private GameObject player;
-
-    [SerializeField] private float range;
     private float playerDistance;
     private bool isShooting;
-
 
     protected override void Start()
     {
@@ -21,9 +17,15 @@ public class EnemyShooterBehavior : EnemyBehavior
         base.Update();
         CheckPlayerDistance();
     }
-
+    
     private void CheckPlayerDistance()
     {
+        if (player == null)
+        {
+            player = GameManager.Instance.GetPlayer();
+            return;
+        }
+
         playerDistance = Vector3.Distance(player.transform.position, transform.position);
 
         if (playerDistance <= range)

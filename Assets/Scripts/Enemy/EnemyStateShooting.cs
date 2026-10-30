@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyStateShooting : EnemyState
 {
-    GameObject player;
+    GameObject target;
     EnemyShooterBehavior enemy;
 
     public EnemyStateShooting(EnemyShooterBehavior enemy)
@@ -12,17 +12,13 @@ public class EnemyStateShooting : EnemyState
 
     public void Enter()
     {
-        player = GameManager.Instance.GetPlayer();
+        target = enemy.target;
     }
 
     public void OnState()
     {
-        if (player == null)
-        {
-            player = GameManager.Instance.GetPlayer();
-            return;
-        }
+        if (target == null) return;
 
-        enemy.transform.LookAt(player.transform);
+        enemy.transform.LookAt(target.transform);
     }
 }

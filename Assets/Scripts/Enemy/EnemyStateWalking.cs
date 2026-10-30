@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyStateWalking : EnemyState
 {
-    GameObject player;
+    GameObject target;
     EnemyBehavior enemy;
 
     public EnemyStateWalking(EnemyBehavior enemy)
@@ -12,20 +12,16 @@ public class EnemyStateWalking : EnemyState
 
     public void Enter()
     {
-        player = GameManager.Instance.GetPlayer();
+        target = enemy.target;
     }
 
     public void OnState()
-    {
-        if (player == null)
-        {
-            player = GameManager.Instance.GetPlayer();
-            return;
-        }
+    { 
+        if (target == null) return;
 
-        Vector3 dir = player.transform.position - enemy.transform.position;
+        Vector3 dir = target.transform.position - enemy.transform.position;
 
-        enemy.transform.LookAt(player.transform);
-        enemy.transform.Translate(dir.normalized * enemy.speed * Time.deltaTime, Space.World);
+        enemy.transform.LookAt(target.transform);
+        enemy.transform.Translate(dir.normalized * (enemy.onDebuff ? enemy.speed/4: enemy.speed) * Time.deltaTime, Space.World);
     }
 }
