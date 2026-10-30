@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: N_Slow
   m_EditorClassIdentifier: Assembly-CSharp::SO_Enemy
   speed: 1
-  life: 140
+  maxLife: 140
   range: 0

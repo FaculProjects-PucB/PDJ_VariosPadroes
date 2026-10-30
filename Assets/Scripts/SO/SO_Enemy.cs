@@ -4,6 +4,6 @@ using UnityEngine;
 public class SO_Enemy : ScriptableObject
 {
     public float speed;
-    public int life;
+    public int maxLife;
     public float range;
 }

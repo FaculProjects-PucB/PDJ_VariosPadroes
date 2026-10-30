@@ -7,6 +7,7 @@ public class PlayerInputReader : MonoBehaviour
     [SerializeField] private PlayerInputActions playerInput;
     
     private PlayerMovement playerMovement;
+    private PlayerBehavior playerBehavior;
 
     void Awake()
     {
@@ -23,5 +24,8 @@ public class PlayerInputReader : MonoBehaviour
         playerInput.DefaultMap.Movement.started += playerMovement.OnMove;
         playerInput.DefaultMap.Movement.performed += playerMovement.OnMove;
         playerInput.DefaultMap.Movement.canceled += playerMovement.OnMove;
+
+        playerBehavior = GetComponent<PlayerBehavior>();
+        playerInput.DefaultMap.Shoot.started += playerBehavior.Shoot;
     }
 }

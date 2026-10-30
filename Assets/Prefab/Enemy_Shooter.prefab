@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 7039505625475703439}
   m_Layer: 0
   m_Name: Enemy_Shooter
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -250,7 +250,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyShooterBehavior
   type: 2
   target: {fileID: 0}
-  speed: 1.5
+  Attributes: {fileID: 0}
   life: 0
-  range: 7
   onDebuff: 0

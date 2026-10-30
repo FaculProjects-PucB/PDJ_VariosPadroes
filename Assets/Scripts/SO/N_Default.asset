@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: N_Default
   m_EditorClassIdentifier: Assembly-CSharp::SO_Enemy
   speed: 2
-  life: 50
+  maxLife: 50
   range: 0

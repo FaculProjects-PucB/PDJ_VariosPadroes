@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: S_Sniper
   m_EditorClassIdentifier: Assembly-CSharp::SO_Enemy
   speed: 1.5
-  life: 35
+  maxLife: 35
   range: 12

@@ -37,11 +37,7 @@ public class EnemySpawner : MonoBehaviour
                 break;
         }
         
-        enemy.SetAttributes(
-            speed: enemyAttributes.speed,
-            life: enemyAttributes.life,
-            range: enemyAttributes.range
-        );
+        enemy.SetAttributes(enemyAttributes);
 
         return enemy;
     }

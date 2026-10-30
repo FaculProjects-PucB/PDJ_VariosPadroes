@@ -7,16 +7,14 @@ public class EnemyBehavior : MonoBehaviour
 
     public int type;
     public GameObject target;
-    public float speed;
+    public SO_Enemy Attributes;
     public int life;
-    public float range;
     public bool onDebuff;
 
-    public void SetAttributes(float speed, int life, float range)
+    public void SetAttributes(SO_Enemy attributes)
     {
-        this.speed = speed;
-        this.life = life;
-        this.range = range;
+        Attributes = attributes;
+        life = attributes.maxLife;
     }
 
     protected virtual void Start()
@@ -46,6 +44,13 @@ public class EnemyBehavior : MonoBehaviour
     {
         state = newState;
         state?.Enter();
+    }
+
+    public void Damage(int value)
+    {
+        life -= value;
+
+        if (life <= 0) Die();
     }
 
     public void Die()

@@ -20,8 +20,9 @@ public class EnemyStateWalking : EnemyState
         if (target == null) return;
 
         Vector3 dir = target.transform.position - enemy.transform.position;
+        float speed = enemy.onDebuff ? enemy.Attributes.speed / 4f : enemy.Attributes.speed;
 
         enemy.transform.LookAt(target.transform);
-        enemy.transform.Translate(dir.normalized * (enemy.onDebuff ? enemy.speed/4: enemy.speed) * Time.deltaTime, Space.World);
+        enemy.transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
     }
 }

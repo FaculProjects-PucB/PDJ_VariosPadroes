@@ -28,7 +28,7 @@ public class EnemyShooterBehavior : EnemyBehavior
 
         playerDistance = Vector3.Distance(player.transform.position, transform.position);
 
-        if (playerDistance <= range)
+        if (playerDistance <= Attributes.range)
         {
             if (!isShooting)
             {
