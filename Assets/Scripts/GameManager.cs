@@ -102,12 +102,17 @@ public class GameManager : MonoBehaviour
 
     public PlayerData GetPlayerData()
     {
-        return new PlayerData(enemiesKilled, life);
+        return new PlayerData(enemiesKilled, life, player.transform.position, player.transform.rotation.eulerAngles);
     }
 
     public void SetPlayerData(PlayerData data)
     {
         enemiesKilled = data.enemiesKilled;
         life = data.life;
+
+        player.GetComponent<CharacterController>().enabled = false;
+        player.transform.position = data.position;
+        player.transform.rotation = Quaternion.Euler(data.rotation);
+        player.GetComponent<CharacterController>().enabled = true;
     }
 }

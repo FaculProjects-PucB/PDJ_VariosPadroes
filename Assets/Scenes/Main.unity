@@ -2007,7 +2007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f06d9857abfa97499544ecfcc98981f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SaveGame
-  factory: {fileID: 0}
+  factory: {fileID: 1875346171}
 --- !u!1 &1156660847
 GameObject:
   m_ObjectHideFlags: 0

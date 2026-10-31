@@ -41,6 +41,15 @@ public class SaveGame: MonoBehaviour
 
     public void Load(InputAction.CallbackContext cx)
     {
+        EnemyManager.Instance.RemoveAllEnemies();
         
+        string s = File.ReadAllText(path);
+        LevelData data = JsonUtility.FromJson<LevelData>(s); 
+        
+        GameManager.Instance.SetPlayerData(data.player);
+        for (int i=0; i<data.enemies.Length; i++)
+        {
+            factory.CreateEnemy(data.enemies[i]);
+        }
     }
 }

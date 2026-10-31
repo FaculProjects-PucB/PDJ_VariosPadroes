@@ -5,7 +5,6 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private SO_Enemy[] attributes_normal;
     [SerializeField] private SO_Enemy[] attributes_shooter;
 
-
     [SerializeField] private GameObject[] enemies;
     private GameObject player;
     
@@ -55,6 +54,9 @@ public class EnemySpawner : MonoBehaviour
         enemy.index = data.index;
         enemy.Attributes = data.attributes;
 
+        enemy.target = GameManager.Instance.GetPlayer();
+        
+        EnemyManager.Instance.AddEnemy(enemy);
         return enemy;
     }
 }

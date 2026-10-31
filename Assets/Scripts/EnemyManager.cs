@@ -72,10 +72,22 @@ public class EnemyManager : MonoBehaviour
 
         enemies.Add(enemy);
     }
+    
+    public void AddEnemy(EnemyBehavior enemy)
+    {
+        enemies.Add(enemy);
+    }
 
     public void RemoveDeadEnemies()
     {
         enemies.RemoveAll(enemy => enemy == null);
+    }
+    
+    public void RemoveAllEnemies()
+    {
+        RemoveDeadEnemies();
+        foreach (var enemy in enemies) Destroy(enemy.gameObject);
+        enemies.Clear();
     }
 
     public void RemoveEnemy(EnemyBehavior enemy)
