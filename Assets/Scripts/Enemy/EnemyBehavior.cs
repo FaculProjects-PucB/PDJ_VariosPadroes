@@ -36,6 +36,7 @@ public class EnemyBehavior : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            GameManager.Instance.Hit(10);
             Die();
         }
     }

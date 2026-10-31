@@ -4,6 +4,7 @@ public class ShootBehavior : MonoBehaviour
 {
     public float speed;
     public int damage;
+    public bool hitsPlayer;
 
     void Start()
     {
@@ -17,10 +18,17 @@ public class ShootBehavior : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (hitsPlayer && other.CompareTag("Player"))
         {
-            Debug.Log("oi");
-            other.GetComponent<EnemyBehavior>().Damage(damage);
+            GameManager.Instance.Hit(damage);
+            Destroy(gameObject);
+        }
+        else if (!hitsPlayer && other.CompareTag("Enemy"))
+        {
+            EnemyBehavior enemy = other.GetComponent<EnemyBehavior>();
+            if (enemy == null) return;
+
+            enemy.Damage(damage);
             Destroy(gameObject);
         }
     }

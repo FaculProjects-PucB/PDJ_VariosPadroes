@@ -29,4 +29,9 @@ public class PlayerInputReader : MonoBehaviour
         playerInput.DefaultMap.Shoot.started += playerBehavior.Shoot;
         playerInput.DefaultMap.Shoot.canceled += playerBehavior.Shoot;
     }
+
+    void OnDisable()
+    {
+        playerInput.DefaultMap.Disable();
+    }
 }

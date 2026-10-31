@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 [DefaultExecutionOrder(-1)]
 public class GameManager : MonoBehaviour
@@ -89,6 +90,6 @@ public class GameManager : MonoBehaviour
 
     private void Die()
     {
-        //Die Method
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 }
