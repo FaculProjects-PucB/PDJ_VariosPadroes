@@ -1904,6 +1904,7 @@ GameObject:
   - component: {fileID: 1099310491}
   - component: {fileID: 1099310493}
   - component: {fileID: 1099310490}
+  - component: {fileID: 1099310494}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1994,6 +1995,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerBehavior
   shoot: {fileID: 2612255337558036293, guid: c45c751332d7b4044a5b8cad9e963f65, type: 3}
   shootInterval: 0.3
+--- !u!114 &1099310494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099310488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f06d9857abfa97499544ecfcc98981f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaveGame
+  factory: {fileID: 0}
 --- !u!1 &1156660847
 GameObject:
   m_ObjectHideFlags: 0
@@ -3157,6 +3171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyManager
   enemySpawnInterval: 2
   descreaseSpawnTimeInterval: 20
+  enemies: []
 --- !u!4 &1875346173
 Transform:
   m_ObjectHideFlags: 0
