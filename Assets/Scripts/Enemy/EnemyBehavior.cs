@@ -5,7 +5,8 @@ public class EnemyBehavior : MonoBehaviour
 {
     private EnemyState state;
 
-    public int type;
+    public int index;
+    public EnemyType type;
     public GameObject target;
     public SO_Enemy Attributes;
     public int life;

@@ -8,6 +8,7 @@ public class PlayerInputReader : MonoBehaviour
     
     private PlayerMovement playerMovement;
     private PlayerBehavior playerBehavior;
+    private SaveGame save;
 
     void Awake()
     {
@@ -28,6 +29,10 @@ public class PlayerInputReader : MonoBehaviour
         playerBehavior = GetComponent<PlayerBehavior>();
         playerInput.DefaultMap.Shoot.started += playerBehavior.Shoot;
         playerInput.DefaultMap.Shoot.canceled += playerBehavior.Shoot;
+
+        save = GetComponent<SaveGame>();
+        playerInput.DefaultMap.SaveGame.started += save.Save;
+        playerInput.DefaultMap.LoadGame.started += save.Load;
     }
 
     void OnDisable()

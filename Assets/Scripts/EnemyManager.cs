@@ -1,7 +1,15 @@
+using System.Collections.Generic;
 using UnityEngine;
+
+public enum EnemyType
+{
+    Normal = 1,
+    Shooter = 2
+}
 
 public class EnemyManager : MonoBehaviour
 {
+    public static EnemyManager Instance;
     private GameObject player;
     private EnemySpawner enemySpawner;
 
@@ -10,6 +18,13 @@ public class EnemyManager : MonoBehaviour
     private float cooldown;
     private float descreaseCooldown;
 
+    public List<EnemyBehavior> enemies;
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+    }
 
     void Start()
     {
@@ -18,6 +33,8 @@ public class EnemyManager : MonoBehaviour
 
         cooldown = 0;
         descreaseCooldown = descreaseSpawnTimeInterval;
+
+        enemies = new List<EnemyBehavior>();
     }
 
     void Update()
@@ -50,5 +67,7 @@ public class EnemyManager : MonoBehaviour
             player.transform.position.z + spawnOffset.y
         );
         enemy.transform.position = spawnPosition;
+
+        enemies.Add(enemy);
     }
 }

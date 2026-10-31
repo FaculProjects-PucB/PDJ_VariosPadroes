@@ -67,6 +67,11 @@ public class GameManager : MonoBehaviour
     {
         enemiesKilled++;
 
+        if (enemiesKilled == enemiesToKill)
+        {
+            SceneManager.LoadScene(0);
+        }
+
         if (UIManager.Instance != null)
         {
             UIManager.Instance.SetEnemiesKilled(maxEnemiesKilled: enemiesToKill, enemiesKilled: enemiesKilled);
@@ -90,6 +95,19 @@ public class GameManager : MonoBehaviour
 
     private void Die()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        SceneManager.LoadScene(0);
+    }
+
+    // Save Game
+
+    public PlayerData GetPlayerData()
+    {
+        return new PlayerData(enemiesKilled, life);
+    }
+
+    public void SetPlayerData(PlayerData data)
+    {
+        enemiesKilled = data.enemiesKilled;
+        life = data.life;
     }
 }
