@@ -27,5 +27,6 @@ public class PlayerInputReader : MonoBehaviour
 
         playerBehavior = GetComponent<PlayerBehavior>();
         playerInput.DefaultMap.Shoot.started += playerBehavior.Shoot;
+        playerInput.DefaultMap.Shoot.canceled += playerBehavior.Shoot;
     }
 }
