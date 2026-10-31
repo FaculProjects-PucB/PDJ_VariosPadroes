@@ -39,6 +39,8 @@ public class EnemyManager : MonoBehaviour
 
     void Update()
     {
+        RemoveDeadEnemies();
+
         cooldown -= Time.deltaTime;
         descreaseCooldown -= Time.deltaTime;
 
@@ -69,5 +71,16 @@ public class EnemyManager : MonoBehaviour
         enemy.transform.position = spawnPosition;
 
         enemies.Add(enemy);
+    }
+
+    public void RemoveDeadEnemies()
+    {
+        enemies.RemoveAll(enemy => enemy == null);
+    }
+
+    public void RemoveEnemy(EnemyBehavior enemy)
+    {
+        enemies.Remove(enemy);
+        RemoveDeadEnemies();
     }
 }

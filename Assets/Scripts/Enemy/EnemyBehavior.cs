@@ -58,6 +58,7 @@ public class EnemyBehavior : MonoBehaviour
     public void Die()
     {
         GameManager.Instance.EnemyKilled();
+        if (EnemyManager.Instance != null) EnemyManager.Instance.RemoveEnemy(this);
         Destroy(gameObject);
     }
 

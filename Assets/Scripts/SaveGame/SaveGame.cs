@@ -21,6 +21,8 @@ public class SaveGame: MonoBehaviour
 
     public void Save(InputAction.CallbackContext cx)
     {
+        EnemyManager.Instance.RemoveDeadEnemies();
+
         LevelData data = new LevelData
         {
             enemies = new EnemyData[EnemyManager.Instance.enemies.Count],
